@@ -6,7 +6,13 @@ const getSolutions = () => {
 }
 
 function handler(_req: Request):Response {
-    return new Response(getSolutions())
+    return new Response(getSolutions(),{
+        status:200,
+        headers:{
+            "Content-Type": "application/json; charset=utf-8",
+            "Access-Control-Allow-Origin":"*"
+        }
+    })
 }
 
 serve(handler)
